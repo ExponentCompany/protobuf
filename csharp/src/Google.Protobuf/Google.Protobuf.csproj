@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <!-- If you update this, update the .csproj in the Docker file as well -->
 
   <PropertyGroup>
@@ -8,7 +8,7 @@
     <VersionPrefix>3.28.2</VersionPrefix>
     <LangVersion>10.0</LangVersion>
     <Authors>Google Inc.</Authors>
-    <TargetFrameworks>netstandard1.1;netstandard2.0;net45;net50</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45;net50</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyOriginatorKeyFile>../../keys/Google.Protobuf.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
@@ -37,20 +37,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="1.0.0"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="1.0.0" />
     <!-- Needed for the net45 build to work on Unix. See https://github.com/dotnet/designs/pull/33 -->
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0"/>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'netstandard1.1' ">
     <!-- TODO -->
-    <PackageReference Include="System.Memory" Version="4.5.3"/>
+    <PackageReference Include="System.Memory" Version="4.5.3" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Memory" Version="4.5.3"/>
+    <PackageReference Include="System.Memory" Version="4.5.3" />
     <!-- Needed for netcoreapp3.1 to work correctly. .NET is not able to load the assembly without this -->
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.2"/>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.2" />
   </ItemGroup>
 
 </Project>
